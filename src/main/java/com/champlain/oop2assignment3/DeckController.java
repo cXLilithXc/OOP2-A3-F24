@@ -121,10 +121,9 @@ public class DeckController {
             ScoringStrategy strategy;
             switch (choice) {
                 case "Simple Count":
-                    // TODO: Replace the following line of code.
                     strategy = new ScoringStrategies();
-                    score = strategy.calculateScore(this.aDeck);
-                    this.aScoreLabel.setText("is " + score);
+                    score = strategy.calculateScore(this.aHand);
+                    this.aScoreLabel.setText("Score is: " + score);
                     break;
                 case "Number Of Aces":
                     // TODO: Replace the following line of code.
@@ -144,8 +143,10 @@ public class DeckController {
      */
     @FXML
     protected void onDrawButtonClick() {
+
         if (!this.aDeck.isEmpty()) {
-            this.aHand.addCard(this.aDeck.draw());
+            Card drawnCard = this.aDeck.draw();
+            this.aHand.addCard(drawnCard);
         } else {
             Alert selectionErrorAlert = new Alert(Alert.AlertType.INFORMATION, "There are no more cards in the deck.");
             selectionErrorAlert.showAndWait();
