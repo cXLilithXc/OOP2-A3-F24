@@ -45,6 +45,7 @@ public class Deck extends CardCollection implements CardSource {
         return myCard;
     }
 
+
     public boolean isEmpty() {
         return this.aCards.isEmpty();
     }
@@ -65,10 +66,20 @@ public class Deck extends CardCollection implements CardSource {
         this.aCards.sort(Comparator.comparing(Card::getRank).thenComparing(Card::getSuit));
     }
 
-    /**
-     * Sorts the deck of cards by suit first, then by rank.
-     */
+
     public void sortBySuit() {
         this.aCards.sort(Comparator.comparing(Card::getSuit).thenComparing(Card::getRank));
+    }
+//me
+    public interface ScoringStrategy {
+        int calculateScore(CardCollection pCards);
+    }
+
+   //me
+    public static class ScoringStrategies implements ScoringStrategy {
+        @Override
+        public int calculateScore(CardCollection pCards) {
+            return pCards.size(); // Score based on the number of cards
+        }
     }
 }
