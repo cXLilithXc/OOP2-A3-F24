@@ -15,6 +15,11 @@ import java.util.Comparator;
  */
 public class Deck extends CardCollection implements CardSource {
     /**
+     * The single instance of the Deck class.
+     */
+    private static Deck instance;
+
+    /**
      * The list of cards in the deck.
      */
     private final List<Card> aCards = new ArrayList<>();
@@ -29,6 +34,17 @@ public class Deck extends CardCollection implements CardSource {
                 this.aCards.add(new Card(currentRank, currentSuit));
             }
         }
+    }
+    /**
+     * Returns the single instance of the Deck.
+     *
+     * @return the singleton instance of the Deck
+     */
+    public static Deck getInstance() {
+        if (instance == null) {
+            instance = new Deck();  // Create a new instance if it doesn't exist
+        }
+        return instance;  // Return the existing instance
     }
 
     /**
