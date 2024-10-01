@@ -118,7 +118,7 @@ public class DeckController {
             selectionErrorAlert.showAndWait();
         } else {
             int score = 0;
-            ScoringStrategy strategy;
+            ScoringStrategies strategy = new ScoringStrategies();
             switch (choice) {
                 case "Simple Count":
                     strategy = new ScoringStrategies();
@@ -127,7 +127,8 @@ public class DeckController {
                     break;
                 case "Number Of Aces":
                     // TODO: Replace the following line of code.
-                    this.aScoreLabel.setText("Number of aces...");
+                    score = strategy.countAces(this.aHand); // Use the new method
+                    this.aScoreLabel.setText("Number of Aces: " + score);
                     break;
                 default:
                     this.aScoreLabel.setText("This should not happen! You messed up.");
