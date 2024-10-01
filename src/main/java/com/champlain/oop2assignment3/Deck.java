@@ -66,7 +66,7 @@ public class Deck extends CardCollection implements CardSource {
     }
 
     /**
-     * Sorts the deck of cards by suit first, then by rank.
+     * Sorts the deck of cards by suit first, then by rank. Yes
      */
     public void sortBySuit() {
         this.aCards.sort(Comparator.comparing(Card::getSuit).thenComparing(Card::getRank));
