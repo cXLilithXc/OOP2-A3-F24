@@ -124,7 +124,7 @@ public class DeckController {
                     // TODO: Replace the following line of code.
                     strategy = new Deck.ScoringStrategies();
                     score = strategy.calculateScore(this.aHand);
-                    this.aScoreLabel.setText("Score: " + score);
+                    this.aScoreLabel.setText("is " + score);
                     break;
                 case "Number Of Aces":
                     // TODO: Replace the following line of code.
