@@ -123,7 +123,7 @@ public class DeckController {
                 case "Simple Count":
                     strategy = new ScoringStrategies();
                     score = strategy.calculateScore(this.aHand);
-                    this.aScoreLabel.setText("Score is: " + score);
+                    this.aScoreLabel.setText("" + score);
                     break;
                 case "Number Of Aces":
                     // TODO: Replace the following line of code.
